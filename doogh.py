@@ -8,7 +8,7 @@ import random
 import termcolor as tc
 print("Welcome to doogh shell version 0.13 made for parch GNU/Linux")
 while True:
-    code = input(os.getlogin()+tc.colored("@doogh:~$ ","green"))
+    code = input(tc.colored(os.getlogin(),"red")+tc.colored("@doogh:~$ ","green"))
     if code == 'ver':
         print("doogh shell version 0.12")
     elif code == 'neofetch':
@@ -92,3 +92,5 @@ while True:
         print(
             "Thank you for using doogh shell, have a nice day!")
         sys.exit()
+if __name__ == '__main__':
+    pass
