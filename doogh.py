@@ -5,41 +5,42 @@ import os
 import time
 import sys
 import random
-print("Welcome to doogh shell version 0.12 made for parch GNU/Linux")
+import termcolor as tc
+print("Welcome to doogh shell version 0.13 made for parch GNU/Linux")
 while True:
-    code = input("doogh@parch:~$ ")
+    code = input(os.getlogin()+tc.colored("@doogh:~$ ","green"))
     if code == 'ver':
         print("doogh shell version 0.12")
-    if code == 'neofetch':
+    elif code == 'neofetch':
         subprocess.call(['neofetch'])
-    if code == 'help':
+    elif code == 'help':
         print("the commands are ver, neofetch, help, sum ,random-number , whatos , restart , shutdown,os-ver ,pdm ,ls ,ping , webbrowser ,bash ,exit")
-    if code == 'sum':
+    elif code == 'sum':
         while True:
             print("enter the numbers to add")
             num1 = int(input("num1 > "))
             num2 = int(input("num2 > "))
             print(num1 + num2)
             break
-    if code == 'random-number':
+    elif code == 'random-number':
         print(random.randint(1, 100))
-    if code == 'time':
+    elif code == 'time':
         print(time.ctime())
-    if code == 'whatos':
+    elif code == 'whatos':
         print(platform.platform())
-    if code == 'restart':
+    elif code == 'restart':
         if platform.system() == 'Linux':
             os.system('reboot')
         if platform.system() == 'Windows':
             os.system('shutdown -r -t 0')
-    if code == 'os-ver':
+    elif code == 'os-ver':
         print(platform.platform() +' '+platform.release()+' '+platform.version()+' '+platform.machine()+' '+platform.processor() )
-    if code == 'shutdown':
+    elif code == 'shutdown':
         if platform.system() == 'Linux':
             os.system('shutdown -h now')
         if platform.system() == 'Windows':
             os.system('shutdown -s -t 0')
-    if code == 'webbrowser':
+    elif code == 'webbrowser':
         while True:
             if platform.system() == 'Linux':
                 print("enter the url")
@@ -51,7 +52,7 @@ while True:
                 url = input("url > ")
                 os.system('start '+url)
                 break
-    if code == 'pdm':
+    elif code == 'pdm':
         while True:
             if os.system() == 'Linux':
                 print("enter the url")
@@ -63,22 +64,22 @@ while True:
                 url = input("url > ")
                 os.system('start '+url)
                 break
-    if code == 'ls':
+    elif code == 'ls':
         if platform.system() == 'Linux':
             os.system('ls')
         if platform.system() == 'Windows':
             os.system('dir')
-    if code == 'locate':
+    elif code == 'locate':
         if platform.system() == 'Linux':
             os.system('locate')
         if platform.system() == 'Windows':
             print("not supported on windows :)")
-    if code == 'ping':
+    elif code == 'ping':
         if platform.system() == 'Linux':
             os.system('ping -c 4 google.com')
         if platform.system() == 'Windows':
             subprocess.call(['ping', '-n', '4', 'google.com'])
-    if code == 'bash':
+    elif code == 'bash':
         while True:
             if platform.system() == 'Linux':
                 os.system('bash')
@@ -86,7 +87,8 @@ while True:
             if platform.system() == 'Windows':
                 os.system('powershell')
                 break
-    if code == 'exit':
+
+    elif code == 'exit':
         print(
             "Thank you for using doogh shell, have a nice day!")
         sys.exit()
